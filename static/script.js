@@ -1,6 +1,7 @@
 let funciones = [];
 
 function agregarFuncion() {
+    
     let input = document.getElementById("funcion").value;
     if (input && funciones.length < 5) {
         funciones.push(input);
@@ -37,15 +38,12 @@ function convertir3D() {
         y: y,
         z: z,
         type: 'surface'
-    };
-    
+    };    
     Plotly.newPlot("grafica3D", [traza3D]);
 }
-
 function insertarSimbolo(simbolo) {
     document.getElementById("funcion").value += simbolo;
 }
-
 function capturarPantalla() {
     html2canvas(document.getElementById("grafica2D")).then(canvas => {
         let enlace = document.createElement("a");
@@ -54,7 +52,6 @@ function capturarPantalla() {
         enlace.click();
     });
 }
-
 function calcularArea(a, b) {
     let funcion = funciones[0];
     fetch('/integrar', {
